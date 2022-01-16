@@ -22,6 +22,10 @@ class App extends Component {
       .catch((error) => console.log("boo boo"));
   }
 
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value });
+  };
+
   render() {
     const { monsters, searchField } = this.state;
     // same as writing:
@@ -36,7 +40,7 @@ class App extends Component {
       <div className="App">
         <SearchBox
           placeholder={"search monsters"}
-          handleChange={(e) => this.setState({ searchField: e.target.value })}
+          handleChange={this.handleChange}
         ></SearchBox>
         <CardList monsters={filteredMonsters}></CardList>
       </div>
